@@ -1,12 +1,12 @@
-const doSomething = function(){
-    console.log('d')
-}
+// console.log(document)
 
-setTimeout(doSomething,0)
+const ele = document.getElementById('car')
+// ele.style='background:dodgerblue;font-size:40px'
+// ele.classList.a
+const arr = [1,2,3]
 
-console.log('a')
-console.log('b')
-console.log('c')
-for(let i =0;i<1000;i++){
-    console.log('block')
-}
+// console.log(arr)
+ele.classList.add("dark")
+ele.classList.remove('something')
+
+console.log(ele.classList)
