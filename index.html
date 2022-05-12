@@ -4,12 +4,30 @@
 <head>
     <title>Document</title>
     <script defer src="./app.js"></script>
+    <style>
+        .light {
+            background-color: white;
+            color: black;
+        }
+        
+        .dark {
+            background-color: black;
+            color: white;
+        }
+        
+        body {
+            transition: 0.4s ease-in-out;
+        }
+    </style>
 </head>
 
-<body>
+<body class="light">
 
     <button onclick="toggle()">Toggle Mode</button>
+    <div>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde ipsa soluta id et cum aperiam quae dicta tempora reiciendis debitis deserunt illum quibusdam, corrupti consequatur repudiandae exercitationem doloremque eligendi aliquam.
 
+    </div>
 </body>
 
 </html>
