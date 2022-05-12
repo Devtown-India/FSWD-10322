@@ -1,17 +1,12 @@
-const body = document.querySelector("body");
-const button = document.querySelector("button");
+const counter = document.querySelector('h1#counter')
 
-function toggle() {
-  if (body.classList.contains("light")) {
-    body.classList.remove("light");
-    body.classList.add("dark");
-  } else {
-    body.classList.remove("dark");
-    body.classList.add("light");
-  }
+function increment(){
+    let val = counter.innerHTML
+    val++
+    counter.innerHTML=val
 }
 
-function toggle() {
-  body.classList.toggle('dark')
-}
 
+function decrement(){
+    console.log('dec')
+}
