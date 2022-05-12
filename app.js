@@ -8,5 +8,9 @@ function increment(){
 
 
 function decrement(){
-    console.log('dec')
+    let val = counter.innerHTML
+    if(val==0) return window.alert("Value is 0")
+    val--
+    counter.innerHTML=val
 }
+
