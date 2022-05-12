@@ -10,3 +10,8 @@ function toggle() {
     body.classList.add("light");
   }
 }
+
+function toggle() {
+  body.classList.toggle('dark')
+}
+
