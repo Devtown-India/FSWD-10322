@@ -1,20 +1,18 @@
 const todoList = document.querySelector("ol");
-const input = document.querySelector('input')
+const input = document.querySelector("input");
+const addBtn = document.querySelector("button");
 
-const chores = ["Workout", "Eat", "Work", "SLeep"];
-
-const displayList = (chores) => {
-  chores.forEach((chore) => {
-    const ele = document.createElement('li')
-    ele.innerHTML=chore
-    todoList.appendChild(ele)
+const handleAdd = () => {
+  const eleToAdd = document.createElement("li");
+  const deleteButton = document.createElement("button");
+  deleteButton.innerHTML = "delete";
+  deleteButton.addEventListener("click", () => {
+    eleToAdd.remove();
   });
+
+  eleToAdd.innerHTML = input.value;
+  eleToAdd.appendChild(deleteButton);
+  todoList.appendChild(eleToAdd);
 };
 
-const handleAdd = ()=>{
-  const eleToAdd = document.createElement('li')
-  eleToAdd.innerHTML = input.value
-  todoList.appendChild(eleToAdd)
-}
-
-displayList(chores);
+addBtn.addEventListener("click", handleAdd);
