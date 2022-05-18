@@ -19,6 +19,7 @@ div.scoreboard div {
     font-size: 3rem;
     position: relative;
     margin: 0px 30px;
+    padding: 2px;
 }
 
 div.scoreboard div.user::after {
@@ -26,10 +27,9 @@ div.scoreboard div.user::after {
     color: blueviolet;
     position: absolute;
     font-size: 1rem;
-    top: -24px;
+    /* top: -24px; */
     border: 1px solid blueviolet;
     border-radius: 5px;
-    padding: 2px;
 }
 
 div.scoreboard div.comp::after {
@@ -37,11 +37,8 @@ div.scoreboard div.comp::after {
     color: crimson;
     position: absolute;
     font-size: 1rem;
-    top: -24px;
-    left: 0;
     border: 1px solid crimson;
     border-radius: 5px;
-    padding: 2px;
 }
 
 
