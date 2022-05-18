@@ -6,10 +6,22 @@
 }
 
 
+/* message box styles */
+
+div.message {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    align-items: center;
+    margin: 20px;
+    text-align: center;
+}
+
+
 /* scoreboard styles */
 
 div.scoreboard {
-    margin: 50px;
+    margin: 50px 0px 0px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,8 +56,8 @@ div.scoreboard div.comp::after {
 
 /* options styles */
 
-.selected {
-    border: 5px solid dodgerblue;
+.won {
+    border: 5px solid lime !important;
     border-radius: 50%;
 }
 

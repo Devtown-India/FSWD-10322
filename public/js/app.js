@@ -1,4 +1,12 @@
-// Coudl also use nth child selector
+// could also use nth child selector
+
+let user_score = 0;
+let computer_score = 0;
+
+const user_board = document.querySelector('div.scoreboard .user')
+const computer_board = document.querySelector('div.scoreboard .comp')
+
+const message_box = document.querySelector("div.message")
 
 const rock = document.querySelector("#rock")
 const paper = document.querySelector("#paper")
@@ -14,6 +22,25 @@ const generateComputerResponse = () => {
     return choices[index]
 }
 
+const result = (winner, userResponse, computerResponse) => {
+    switch(winner){
+        case "user":
+            // display message
+            message_box.innerHTML=` User Wins !! <br/> ${userResponse} beats ${computerResponse} `
+            document.querySelector(`#${userResponse}`).classList.add('won')
+            // setTimeout(2000,()=> document.querySelector(`#${userResponse}`).classList.remove('won'))
+            // update scoreboard
+            user_board.innerHTML=++user_score
+            break
+        case "computer":
+             message_box.innerHTML=` Computer Wins !! <br/> ${computerResponse} beats ${userResponse}`
+            computer_board.innerHTML=++computer_score
+            break
+        default:
+            window.alert("something went wrong")
+    }
+}
+
 const playGame = (userResponse) => {
     const computerResponse = generateComputerResponse()
     if (userResponse === computerResponse) return console.log('Tie!!')
@@ -21,33 +48,24 @@ const playGame = (userResponse) => {
         case "rock":
             switch (computerResponse) {
                 case "paper":
-                    console.log('computer wins')
-                    break
+                    return result("computer", userResponse, computerResponse)
                 case "scissors":
-                    console.log('user wins')
-                    break
+                    return result("user", userResponse, computerResponse)
             }
-            break;
         case "paper":
             switch (computerResponse) {
                 case "rock":
-                    console.log('user wins')
-                    break
+                    return result("user", userResponse, computerResponse)
                 case "scissors":
-                    console.log('computer wins')
-                    break
+                    return result("computer", userResponse, computerResponse)
             }
-            break;
         case "scissors":
             switch (computerResponse) {
                 case "rock":
-                    console.log('computer wins')
-                    break
+                    return result("computer", userResponse, computerResponse)
                 case "paper":
-                    console.log('user wins')
-                    break
+                    return result("user", userResponse, computerResponse)
             }
-            break;
         default:
             window.alert('invalid response')
 
