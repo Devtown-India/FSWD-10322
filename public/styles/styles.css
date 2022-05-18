@@ -5,9 +5,57 @@
     box-sizing: border-box;
 }
 
+
+/* scoreboard styles */
+
+div.scoreboard {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.scoreboard div {
+    font-size: 3rem;
+    position: relative;
+    margin: 0px 30px;
+}
+
+div.scoreboard div.user::after {
+    content: "User";
+    color: blueviolet;
+    position: absolute;
+    font-size: 1rem;
+    top: -24px;
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+div.scoreboard div.comp::after {
+    content: "Computer";
+    color: crimson;
+    position: absolute;
+    font-size: 1rem;
+    top: -24px;
+    left: 0;
+    border: 1px solid crimson;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+
+/* options styles */
+
 .selected {
     border: 5px solid dodgerblue;
     border-radius: 50%;
+}
+
+div.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div.options img {
@@ -16,6 +64,7 @@ div.options img {
     border: 5px solid black;
     border-radius: 50%;
     transition: 0.3s ease;
+    margin: 0px 20px;
 }
 
 div.options img:hover {
