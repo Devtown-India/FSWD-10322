@@ -1,25 +1,18 @@
 const endpoint = "https://jsonplaceholder.typicode.com/todos"
 
-const button = document.querySelector('button')
-const list = document.querySelector('ol')
 
-const fetchData = ()=>{
-    fetch(endpoint)
-    .then(stream=>stream.json())
-    .then(todos=>{
-        todos.map(todo=>{
-            const listelement = document.createElement('li')
-            listelement.innerHTML=todo.title
-            const isCompleted = todo.completed
-            if(isCompleted){
-                listelement.style = "color:lime"
-            }else{
-                listelement.style = "color:crimson"
-            }   
-            console.log(listelement)
-            list.appendChild(listelement)
-        })
+
+const getData =  async ()=>{
+    const response = await new Promise(resolve=>{
+        setTimeout(()=>{
+            resolve()
+        },5000)
     })
+    // console.log(response)
+    // console.log('hi')
+    // await
+    for(let i =0;i<10000;i++)console.log("hi")
 }
 
-button.addEventListener('click',fetchData)
+getData()
+console.log('something')
