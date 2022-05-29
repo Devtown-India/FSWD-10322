@@ -64,3 +64,5 @@ const searchRecipe = () => {
 };
 
 button.addEventListener("click", searchRecipe);
+
+input.addEventListener('keydown',e=>e.key==='Enter'?searchRecipe():null)
