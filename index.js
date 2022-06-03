@@ -1,4 +1,5 @@
 const fs = require('fs')
+const util = require('util')
 
 const obj = {
     brand: "Mercedes",
@@ -15,6 +16,12 @@ const obj = {
 // })
 // console.log(1)
 
-fs.rm('daa.json',(err)=>{console.log(err)})
+const removeFilePromisified = util.promisify(fs.rm)
+
+try {
+    const d = removeFilePromisified(('daa.json'))
+} catch (error) {
+    console.log(error)
+}
 
 // console.log(JSON.parse(data))
