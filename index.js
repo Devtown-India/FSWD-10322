@@ -1,27 +1,17 @@
-const fs = require('fs')
-const util = require('util')
+const http = require('http')
+const fs  = require('fs')
+const path = require('path')
 
-const obj = {
-    brand: "Mercedes",
-    model:"AMG Project One",
-    make:'2022'
-}
+const server = http.createServer((req,res)=>{
+    if(req.url==='/'){
+        const data = fs.readFileSync(path.join(__dirname,'/public/home.html'))
+        res.write(data)
+    }else if(req.url==='/about'){
+        const data = fs.readFileSync(path.join(__dirname,'/public/about.html'))
+        res.write(data)
+    }
+    res.end()
 
-// const d = fs.writeFile('data.json',JSON.stringify(obj),(err)=>console.log(err))
+})
 
-// const data = fs.readFileSync('data.json',{encoding:"UTF-8"})
-// console.log(data)
-// fs.readFile('data.json',{encoding:"UTF-8"},(err,data)=>{
-//     console.log(data)
-// })
-// console.log(1)
-
-const removeFilePromisified = util.promisify(fs.rm)
-
-try {
-    const d = removeFilePromisified(('daa.json'))
-} catch (error) {
-    console.log(error)
-}
-
-// console.log(JSON.parse(data))
+server.listen(8080)
