@@ -4,6 +4,7 @@ const path = require("path");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 const { validateSignup, validateLogin } = require("../middlewares/index");
+const {createJWT} = require('../helpers/jwt')
 
 router.post("/signup", validateSignup, (req, res) => {
   try {
@@ -51,7 +52,9 @@ router.post("/login", validateLogin, (req, res) => {
     if(!user) return res.send("User not found !!")
     if(user.password!=password) return res.send("Incorrect password")
     // verified user
-    res.send("acknowledged");
+    res.json({
+        token: createJWT({id:user.id,email:user.email})
+    });
   } catch (error) {
     console.log(error);
     res.send(error.message);

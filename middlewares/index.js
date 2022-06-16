@@ -1,3 +1,5 @@
+const { verifyJWT } = require("../helpers/jwt")
+
 const validateSignup = (req,res,next)=>{
     const {name,email,password} = req.body
     if(!name || !email || !password) return res.send("Invalid field/s")
@@ -10,8 +12,14 @@ const validateLogin = (req,res,next)=>{
     return next()
 }
 
+const isAuthorised = (req,res,next)=>{
+    const token = req.headers['auth']
+    if(verifyJWT(token)) return next()
+    else return res.send("Access denied")
+}
 
 module.exports = {
     validateSignup,
-    validateLogin
+    validateLogin,
+    isAuthorised
 }

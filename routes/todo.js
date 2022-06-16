@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const fs = require("fs");
 const path = require("path");
+const { isAuthorised } = require('../middlewares');
 
 
 /*
@@ -9,10 +10,10 @@ PARAMS: null
 QUERY: count
 DESCRIPTION: route to fetch all todos
 */
-router.get("/", (req, res) => {
+router.get("/", isAuthorised  ,(req, res) => {
   try {
     const todos = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "db.json"), { encoding: "UTF-8" })
+      fs.readFileSync(path.join(path.resolve(), "db.json"), { encoding: "UTF-8" })
     );
 
     const { count } = req.query;
@@ -36,7 +37,7 @@ DESCRIPTION: route to fetch a specific todo
 router.get("/:id", (req, res) => {
   try {
     const todos = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "db.json"), { encoding: "UTF-8" })
+      fs.readFileSync(path.join(path.resolve(), "db.json"), { encoding: "UTF-8" })
     );
     const { id } = req.params;
     const todo = todos.find((e) => e.id == id);
@@ -91,12 +92,12 @@ router.delete("/:id", (req, res) => {
   try {
     const { id } = req.params;
     const todos = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "db.json"), { encoding: "UTF-8" })
+      fs.readFileSync(path.join(path.resolve(), "db.json"), { encoding: "UTF-8" })
     );
 
     const newTodos = todos.filter((todo) => todo.id != id);
 
-    fs.writeFileSync(path.join(__dirname, "db.json"), JSON.stringify(newTodos));
+    fs.writeFileSync(path.join(path.resolve(), "db.json"), JSON.stringify(newTodos));
     //   console.log(todo);
     res.send(newTodos);
   } catch (error) {
@@ -117,7 +118,7 @@ router.put("/:id", (req, res) => {
     const { id } = req.params;
     const data = req.body;
     const todos = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "db.json"), { encoding: "UTF-8" })
+      fs.readFileSync(path.join(path.resolve(), "db.json"), { encoding: "UTF-8" })
     );
 
     const newTodos = todos.map((todo) => {
@@ -132,7 +133,7 @@ router.put("/:id", (req, res) => {
       }
     });
 
-    fs.writeFileSync(path.join(__dirname, "db.json"), JSON.stringify(newTodos));
+    fs.writeFileSync(path.join(path.resolve(), "db.json"), JSON.stringify(newTodos));
     //   console.log(todo);
     res.send(newTodos);
   } catch (error) {
