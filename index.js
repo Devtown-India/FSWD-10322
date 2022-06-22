@@ -1,16 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose")
-
-const MONGO_URI = "mongodb+srv://katik:12345@class.sujvt.mongodb.net/test"
-
-const connectDB = async ()=>{
-  try {
-    await mongoose.connect(MONGO_URI)
-    console.log("Connected to the DB")
-  } catch (error) {
-    console.log(error)
-  }
-}
+const { connectDB } = require("./helpers/db");
 
 connectDB()
 
