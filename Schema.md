@@ -7,3 +7,10 @@
 ]
 -> isVerified: Boolean
 -> dateAdded: Date
+
+
+#ADDRESS
+->state
+-> city
+->pincode
+-> landmark
