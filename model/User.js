@@ -1,55 +1,31 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
 const UserSchema = new mongoose.Schema({
     name: {
         type:String,
-        required:true,
+        required:true
     },
     email:{
         type:String,
         required:true,
         unique:true,
     },
-    age:{
-        type:Number,
-        default:10,
-    },
-    mobile:{
-        type:Number,
-        required:true,
-        maxlength:10,
-    },
-    address:[{
-        firstLine:{
-            type: String,
-            maxlength: 100,
-            minlength: 5,
-        },
-        secondLine:{
-            type: String,
-        },
-        city:{
-            type:String,
-        },
-        state:{
-            type:String,
-        },
-        pincode:{
-            type:Number,
-        },
-        landmark:{
-            type:String
-        }
-    }],
-    isVerified:Boolean,
+    password:{
+        type:String,
+    }
 },{
     timestamps:true,
 })
 
-/*
- firstLine
- secondLine
- city
- pincode
- landmark
-*/
+UserSchema.pre('save',(next)=>{
+    const {password} = this
+    // hash the password here
+    this.password = bcrypt.hashSync(password,10)
+    console.log(this)
+    next()
+})
+
+const User = mongoose.model('User',UserSchema)
+
+module.exports = User

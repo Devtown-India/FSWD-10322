@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const MONGO_URI = "mongodb+srv://kartik:12345@class.sujvt.mongodb.net/test"
+const MONGO_URI = "mongodb+srv://kartik:12345@class.sujvt.mongodb.net/FSWD10322"
 
 
 module.exports.connectDB = async ()=>{
