@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
 const UserSchema = new mongoose.Schema({
     firstName: {
@@ -39,11 +40,13 @@ UserSchema.pre('save', function(next){
     if(this.password.length < 5){
         next(new Error('Password must be at least 5 characters long'))
     }else{
-        console.log(this.password)
-        // next()
+        const salt = bcrypt.genSaltSync(5)
+        const hashedPassword = bcrypt.hashSync(this.password, salt)
+        this.password = hashedPassword
+        next()
     }
 })
 
 const User = mongoose.model('User', UserSchema)
 
-module.exports.User = User
+module.exports = User
