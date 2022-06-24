@@ -1,16 +1,14 @@
 # USER
--> name : String
--> age : Number
--> mobile: Number
--> address : [
-    Strings
-]
--> isVerified: Boolean
--> dateAdded: Date
+-> firstName
+-> lastName
+-> email
+-> todos*
+-> password
+-> image (url*)
 
 
-#ADDRESS
-->state
--> city
-->pincode
--> landmark
+# NOTES
+-> name
+-> content
+-> author*
+-> users ( users that can read a note)*
