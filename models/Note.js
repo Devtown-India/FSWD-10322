@@ -18,12 +18,10 @@ const NoteSchema = new mongoose.Schema(
     },
     pinned:{
       type: Boolean,
-      required: true,
       default: false,
     },
     color:{
       type: String,
-      required: true,
       default: "#fff",
     },
     // users are the users that have access to this note

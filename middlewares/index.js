@@ -1,4 +1,4 @@
-const { verifyJWT } = require("../helpers/jwt")
+const { verifyJWT,decodeJWT } = require("../helpers/jwt")
 
 const validateSignup = (req,res,next)=>{
     const {name,email,password} = req.body
@@ -14,7 +14,11 @@ const validateLogin = (req,res,next)=>{
 
 const isAuthorised = (req,res,next)=>{
     const token = req.headers['auth']
-    if(verifyJWT(token)) return next()
+    if(verifyJWT(token)){
+        const {id} = decodeJWT(token)
+        req.user = id
+        next()
+    }
     else return res.send("Access denied")
 }
 

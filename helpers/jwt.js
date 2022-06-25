@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const secret = "TOP_SECRET_123@#$"
 
-const createJWT = (payload)=> jwt.sign(payload,secret,{expiresIn:"1d"})
+const createJWT = (payload,exipry="1d")=> jwt.sign(payload,secret,{expiresIn:exipry})
 
 const verifyJWT = (token)=> {
     try {
