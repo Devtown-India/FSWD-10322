@@ -1,15 +1,20 @@
-import Heading from "./components/Heading";
-import List from "./components/List";
-
 const App = () => {
-
-  const todos = ["Task 1", "Task 2", "Task 3"];
-  const age = 19
-
+  let count = 0;
+  
+  const handleIncrement = (e)=>{
+    count++;
+  }
+  const handleDecrement = (e)=>{
+    count--;
+  }
   return ( 
     <div>
-      <Heading/>
-      <List age={age} todos={todos} />
+      <h1>{count}</h1>
+      <button onClick={handleDecrement} >-</button>
+      &nbsp;
+      &nbsp;
+      <button  onClick={handleIncrement} >+</button>
+
     </div>
    );
 }
