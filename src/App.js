@@ -1,22 +1,19 @@
 import {useState} from 'react'
+import AddTodo from './components/AddTodo';
+import Heading from './components/Heading';
+import List from './components/List'
 
 const App = () => {
   // let count = 0;
 
-  let [count,setCount] = useState(0)
+  let [todos,setTodos] = useState([])
   
-  const handleIncrement = ()=>setCount(prev=> prev+1)
-
-  const handleDecrement = ()=>setCount(prev=> prev-1)
   
   return ( 
     <div>
-      <h1>{count}</h1>
-      <button onClick={handleDecrement} >-</button>
-      &nbsp;
-      &nbsp;
-      <button  onClick={handleIncrement} >+</button>
-
+      <Heading/>
+      <AddTodo setTodos={setTodos} />
+      <List todos={todos} />
     </div>
    );
 }

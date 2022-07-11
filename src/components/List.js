@@ -1,8 +1,10 @@
-const List = ({age,todos}) => {
+const List = ({todos}) => {
     return ( 
         <ol>
            {
-                todos.map((todo, index) =><li key={index} >{todo}</li>)
+                todos.length===0?"No todos yet": todos.map((todo,i) => {
+                     return <li key={i}>{todo}</li>
+                  })
            }
         </ol>
      );
