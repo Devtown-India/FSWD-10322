@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Heading/>
       <AddTodo setTodos={setTodos} />
-      <List todos={todos} />
+      <List setTodos={setTodos} todos={todos} />
     </div>
    );
 }
