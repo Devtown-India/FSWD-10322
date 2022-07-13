@@ -1,21 +1,43 @@
-import {useState} from 'react'
-import AddTodo from './components/AddTodo';
-import Heading from './components/Heading';
-import List from './components/List'
+import { useEffect, useState } from "react";
+import Click from "./components/Click";
+import Home from "./components/Home";
+import Move from "./components/Move";
 
 const App = () => {
   // let count = 0;
 
-  let [todos,setTodos] = useState([])
-  
-  
-  return ( 
+  const [display, setDisplay] = useState("");
+
+  useEffect(() => {
+    window.alert("select an option to render a component");
+  }, []);
+
+  return (
     <div>
-      <Heading/>
-      <AddTodo setTodos={setTodos} />
-      <List setTodos={setTodos} todos={todos} />
+      <nav>
+        <ul>
+          <li
+            onClick={() => setDisplay("move")}
+          >
+            Move
+          </li>
+          <li onClick={() => setDisplay("click")}>Click</li>
+          <li onClick={() => setDisplay((prev) => "home")}>Home</li>
+        </ul>
+      </nav>
+      <section>
+        {display === "home" ? (
+          <Home />
+        ) : display === "click" ? (
+          <Click />
+        ) : display === "move" ? (
+          <Move />
+        ) : (
+          "select a component to render"
+        )}
+      </section>
     </div>
-   );
-}
- 
+  );
+};
+
 export default App;
