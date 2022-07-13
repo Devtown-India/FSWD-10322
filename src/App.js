@@ -1,16 +1,12 @@
+import './index.css'
 import { useEffect, useState } from "react";
 import Click from "./components/Click";
 import Home from "./components/Home";
-import Move from "./components/Move";
+import Timer from "./components/Timer";
 
 const App = () => {
   // let count = 0;
-
   const [display, setDisplay] = useState("");
-
-  useEffect(() => {
-    window.alert("select an option to render a component");
-  }, []);
 
   return (
     <div>
@@ -31,7 +27,7 @@ const App = () => {
         ) : display === "click" ? (
           <Click />
         ) : display === "move" ? (
-          <Move />
+          <Timer />
         ) : (
           "select a component to render"
         )}
