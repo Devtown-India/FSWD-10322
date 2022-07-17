@@ -39,6 +39,9 @@ const Timer = () => {
   return (
     <div>
       <h1>{time}</h1>
+      <div style={{transform:"rotate(-90deg)"}} className="clock">
+        <div style={{transform:`rotate(${time*6}deg)`}} className="second"></div>
+      </div>
       <button onClick={startTimer} >start</button>
       <button onClick={handlePause}>pause</button>
       <button onClick={handleReset}  >reset</button>
