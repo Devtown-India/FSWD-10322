@@ -1,39 +1,14 @@
-import './index.css'
-import { useEffect, useState } from "react";
-import Click from "./components/Click";
+import About from "./components/About";
 import Home from "./components/Home";
-import Timer from "./components/Timer";
-import axios from 'axios';
 
 const App = () => {
+  console.log(window.location.pathname);
 
-  const [todos,settodos] = useState([]);
-
-  const getData = async ()=>{
-    try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
-      const data = response.data
-      settodos(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(()=>{
-    getData()
-  },[])
-
-  return (
+  return ( 
     <div>
-      <ol>
-        {
-          todos.map(todo=>(
-            <li key={todo.id} > {todo.title}</li>
-          ))
-        }
-      </ol>
+      {window.location.pathname.includes('/about') ? <About /> : <Home />}
     </div>
-  );
-};
-
+   );
+}
+ 
 export default App;
