@@ -6,7 +6,7 @@ const App = () => {
   return ( 
     <>
     <Navbar/>
-     <div style={{height:"80vh"}} className="container my-2">
+     <div style={{minHeight:"80vh"}} className="container my-2">
       <Recipe/>
      </div>
     <Footer/>
