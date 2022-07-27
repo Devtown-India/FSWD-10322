@@ -1,9 +1,14 @@
+import Recipe from "./components/Recipe";
+
 const App = () => {
-  return ( 
+
+
+  return (
     <div>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio odit illum itaque illo voluptas ipsa maxime, non quia quo quos obcaecati vero, totam odio unde adipisci tenetur aspernatur? Maiores, dolorem.
+      <h1>APp</h1>
+      <Recipe/>
     </div>
-   );
-}
- 
+  );
+};
+
 export default App;
