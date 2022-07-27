@@ -1,12 +1,11 @@
-import Recipe from "./components/Recipe";
+import { useSelector } from "react-redux";
+import List from "./components/List";
 
 const App = () => {
 
-
   return (
     <div>
-      <h1>APp</h1>
-      <Recipe/>
+      <List/>
     </div>
   );
 };
